@@ -10,6 +10,7 @@
 </template>
 <script>
 export default {
+  name: 'Loader',
   computed: {
     color() {
       const colors = ['primary', 'red', 'purple', 'green', 'amber'];

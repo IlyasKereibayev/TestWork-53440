@@ -48,6 +48,26 @@ export default new Vuex.Store({
         return null;
       }
     },
+    async createBook({ commit }, payload) {
+      try {
+        await Vue.axios.post('/api/books', payload);
+        return null;
+      } catch (e) {
+        commit('setError', e);
+        console.log(e);
+        return null;
+      }
+    },
+    async deleteBook({ commit }, { id }) {
+      try {
+        await Vue.axios.delete(`/api/books/${id}`);
+        return null;
+      } catch (e) {
+        commit('setError', e);
+        console.log(e);
+        return null;
+      }
+    },
   },
   modules: {},
 });

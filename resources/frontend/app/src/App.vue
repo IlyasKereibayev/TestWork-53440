@@ -61,7 +61,6 @@ export default {
         icon: 'mdi-plus-thick',
       },
     ],
-    right: null,
   }),
 };
 </script>

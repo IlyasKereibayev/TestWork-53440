@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import Vuelidate from 'vuelidate';
 import Loader from '@/components/app/Loader.vue';
 import App from './App.vue';
 
@@ -10,6 +11,7 @@ import vuetify from './plugins/vuetify';
 
 // binding with Vue
 Vue.use(VueAxios, axios);
+Vue.use(Vuelidate);
 Vue.component('Loader', Loader);
 
 // create component

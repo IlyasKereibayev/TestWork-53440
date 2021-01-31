@@ -21,7 +21,16 @@
         disable-sort
         @click:row="handleClick"
         class="elevation-1 striped clickable"
-      ></v-data-table>
+      >
+        <template v-slot:item.actions="{ item }">
+          <v-icon
+            small
+            @click.stop="deleteItem(item)"
+          >
+            mdi-delete
+          </v-icon>
+        </template>
+      </v-data-table>
       <v-pagination
         v-model="page"
         :length="pagesCount"
@@ -43,7 +52,7 @@ export default {
       { text: 'Title', value: 'title' },
       { text: 'ISBN', value: 'isbn' },
       { text: 'Price', value: 'price' },
-      { text: 'Actions', value: 'actions' },
+      { text: 'Actions', value: 'actions', sortable: false },
     ],
     page: 1,
     itemsPerPage: 5,
@@ -80,6 +89,12 @@ export default {
     },
     handleClick(row) {
       this.$router.push(`/book/${row.id}`);
+    },
+    async deleteItem(item) {
+      const { id } = item;
+      await this.$store.dispatch('deleteBook', { id });
+      this.$toasted.show('Book was deleted');
+      this.getBooksFromApi();
     },
   },
 };

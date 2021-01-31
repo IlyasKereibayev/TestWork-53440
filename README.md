@@ -19,4 +19,6 @@ Laravel API + Vue + Vuetify:
 - `npm install` (resources/frontend/app)
 - If lint errors run `npm run lint`
 - Change (resources/frontend/app/vue.config.js) devServer.proxy to your localhost server
+- For API test `php artisan test --testsuite=Feature`
+- For frontend test `npm run test:unit`
 

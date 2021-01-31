@@ -11,7 +11,12 @@
 
 Laravel API + Vue + Vuetify:
 
-- composer install (root)
-- npm install (resources/frontend/app)
-- If lint errors run npm run lint
+- `composer install` (root)
+- `php artisan key:generate`
 - copy env.example to .env and set DB
+- `php artisan migrate`
+- `php artisan db:seed`
+- `npm install` (resources/frontend/app)
+- If lint errors run `npm run lint`
+- Change (resources/frontend/app/vue.config.js) devServer.proxy to your localhost server
+
